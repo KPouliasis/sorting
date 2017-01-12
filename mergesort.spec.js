@@ -1,4 +1,7 @@
 describe('Merge Sort', function(){
+  beforeEach(function(){
+    spyOn(window,'merge').and.callThrough();
+  });
 
   it('has merge function that merges two sorted arrays', function(){
     expect( merge([1, 3, 5], [2, 4])).toEqual( [1, 2, 3, 4, 5] );
@@ -9,9 +12,6 @@ describe('Merge Sort', function(){
   });
   it('handles a singleton', function(){
     expect( mergeSort([1]) ).toEqual( [1] );
-  });
-  before(function(){
-    spyOn(window,'merge').and.callThrough();
   });
 
   it('sorts arrays from least to greatest', function(){
